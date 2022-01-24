@@ -1,5 +1,14 @@
 # Getting Started
 
+## Set up  application.properties
+`spring.datasource.url=jdbc:postgresql://localhost:5432/places
+spring.datasource.username=postgres
+spring.datasource.password=root
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto= update`  
+*Create a database with your custom configuration for username and password.
+
 ### Reference Documentation
 
 For further reference, please consider the following sections:
