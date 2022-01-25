@@ -25,6 +25,7 @@ public class PlaceController {
         return  this.repository.findAll();
     }
     //get place {id}
+    @CrossOrigin
     @GetMapping("/places/{id}")
     public ResponseEntity<Place> getPlaceById(@PathVariable(value = "id") Long placeId) throws ResourceNotFoundException {
         Place byId = repository.findById(placeId).orElseThrow(() ->
@@ -33,6 +34,7 @@ public class PlaceController {
     }
 
     //add place
+    @CrossOrigin
     @PostMapping("/places")
     public Place addPlace(@RequestBody Place place) {
         return this.repository.save(place);
@@ -40,6 +42,7 @@ public class PlaceController {
     //delete
 
     //update
+    @CrossOrigin
     @PutMapping("places/{id}")
     public ResponseEntity<Place> updatePlace(@PathVariable(value = "id") Long placeId, @Valid @RequestBody Place placeDetails) throws ResourceNotFoundException {
         Place place = repository.findById(placeId).orElseThrow(() -> new ResourceNotFoundException("place not found"));
@@ -49,7 +52,7 @@ public class PlaceController {
         place.setImageUrl(placeDetails.getImageUrl());
         return ResponseEntity.ok().body(this.repository.save(place));
     }
-
+    @CrossOrigin
     @DeleteMapping("places/{id}")
     public Map<String, Boolean> deletePlace(@PathVariable(value = "id") Long placeId) throws ResourceNotFoundException {
         Place place = repository.findById(placeId).orElseThrow(() -> new ResourceNotFoundException("place not found"));
