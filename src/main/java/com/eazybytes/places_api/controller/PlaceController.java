@@ -19,7 +19,7 @@ public class PlaceController {
     private PlaceRepository repository;
 
     //get places
-    @CrossOrigin(origins = "https://evansmutwiri.github.io/some-awe-places/home")
+    @CrossOrigin
     @GetMapping("/places")
     public List<Place> getAll() {
         return  this.repository.findAll();
